@@ -42,7 +42,7 @@ def quicksort(arr):
 num_input = input("Ingresa una lista de números separados por espacios: ")
 nums = list(map(int, num_input.split()))
 
-# Realizar múltiples ejecuciones para Bubble Sort y tomar el promedio de los tiempos
+# Realizar múltiples ejecuciones para Bubble Sort y medir el tiempo de ejecución
 num_executions = 10
 execution_times_bubble = []
 
@@ -54,7 +54,7 @@ for _ in range(num_executions):
 
 average_time_bubble = sum(execution_times_bubble) / num_executions
 
-# Realizar múltiples ejecuciones para ShellSort y tomar el promedio de los tiempos
+# Realizar múltiples ejecuciones para ShellSort y medir el tiempo de ejecución
 execution_times_shell = []
 
 for _ in range(num_executions):
@@ -66,7 +66,7 @@ for _ in range(num_executions):
 
 average_time_shell = sum(execution_times_shell) / num_executions
 
-# Realizar múltiples ejecuciones para Quicksort y tomar el promedio de los tiempos
+# Realizar múltiples ejecuciones para Quicksort y medir el tiempo de ejecución
 execution_times_quick = []
 
 for _ in range(num_executions):
@@ -77,7 +77,7 @@ for _ in range(num_executions):
 
 average_time_quick = sum(execution_times_quick) / num_executions
 
-# Imprimir las listas ordenadas y tiempos de ejecución promedio
+# Imprimir las listas ordenadas y los tiempos de ejecución promedio
 print("Lista original:", nums)
 print("Lista ordenada con Bubble Sort:", sorted_nums_bubble)
 print("Tiempo promedio de ejecución Bubble Sort: %.6f segundos" % average_time_bubble)
