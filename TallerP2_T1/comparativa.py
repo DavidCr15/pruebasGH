@@ -1,3 +1,5 @@
+import time
+
 def bubble_sort(arr):
     n = len(arr)
     
@@ -40,18 +42,46 @@ def quicksort(arr):
 num_input = input("Ingresa una lista de números separados por espacios: ")
 nums = list(map(int, num_input.split()))
 
-# Llamar al algoritmo de Bubble Sort para ordenar la lista
-sorted_nums_bubble = bubble_sort(nums[:])
+# Realizar múltiples ejecuciones para Bubble Sort y tomar el promedio de los tiempos
+num_executions = 10
+execution_times_bubble = []
 
-# Llamar al algoritmo de ShellSort para ordenar la lista
-sorted_nums_shell = nums[:]
-shellSort(sorted_nums_shell)
+for _ in range(num_executions):
+    start_time = time.time()
+    sorted_nums_bubble = bubble_sort(nums[:])
+    end_time = time.time()
+    execution_times_bubble.append(end_time - start_time)
 
-# Llamar al algoritmo de Quicksort para ordenar la lista
-sorted_nums_quick = quicksort(nums[:])
+average_time_bubble = sum(execution_times_bubble) / num_executions
 
-# Imprimir las listas ordenadas
+# Realizar múltiples ejecuciones para ShellSort y tomar el promedio de los tiempos
+execution_times_shell = []
+
+for _ in range(num_executions):
+    start_time = time.time()
+    sorted_nums_shell = nums[:]
+    shellSort(sorted_nums_shell)
+    end_time = time.time()
+    execution_times_shell.append(end_time - start_time)
+
+average_time_shell = sum(execution_times_shell) / num_executions
+
+# Realizar múltiples ejecuciones para Quicksort y tomar el promedio de los tiempos
+execution_times_quick = []
+
+for _ in range(num_executions):
+    start_time = time.time()
+    sorted_nums_quick = quicksort(nums[:])
+    end_time = time.time()
+    execution_times_quick.append(end_time - start_time)
+
+average_time_quick = sum(execution_times_quick) / num_executions
+
+# Imprimir las listas ordenadas y tiempos de ejecución promedio
 print("Lista original:", nums)
 print("Lista ordenada con Bubble Sort:", sorted_nums_bubble)
+print("Tiempo promedio de ejecución Bubble Sort: %.6f segundos" % average_time_bubble)
 print("Lista ordenada con ShellSort:", sorted_nums_shell)
+print("Tiempo promedio de ejecución ShellSort: %.6f segundos" % average_time_shell)
 print("Lista ordenada con Quicksort:", sorted_nums_quick)
+print("Tiempo promedio de ejecución Quicksort: %.6f segundos" % average_time_quick)
